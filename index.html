@@ -11,8 +11,27 @@
 	<link rel="stylesheet" type="text/css" href="components/Shopping/shopping.css">
 </head>
 <body>
-	<input name="val">
-	<span>Поиск</span>
+	<div class="search-block">
+		<div class="search-input">
+			<input name="val">
+			<span>Поиск</span>
+		</div>
+		<div class="category">
+			<label class="select-label">Категории:</label>
+		    <select class="cs-select cs-skin-rotate">
+		        <option class="btn">Все</option>
+		        <option class="btn">Коллекция Минимализм</option>
+		        <option class="btn">Животные, птицы и рыбы</option>
+		        <option class="btn">Люди на картинах</option>
+		        <option class="btn">Поп-арт</option>
+		        <option class="btn">Природа</option>
+		        <option class="btn">Цветы</option>
+		        <option class="btn">Города</option>
+		        <option class="btn">Пейзажи</option>
+		    </select>
+		</div>
+	</div>
+
 	<div class="container"> 
 		<div id="header"></div>
 		<div id="products"></div>

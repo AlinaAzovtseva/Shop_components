@@ -21,7 +21,7 @@ class Products {
         const productsStore = localStorageUtil.getProducts();
         let htmlCatalog = '';
 
-		CATALOG.forEach(({id, article, name, price, image, description, buy_price, buy_price_uah}) => {
+		CATALOG.forEach(({id, article, name, price, image, description, buy_price, buy_price_uah, category}) => {
 		  let activeClass = '';
 		  let activeText = '';
 
@@ -34,7 +34,7 @@ class Products {
 
 		  htmlCatalog += `
 
-		<li class="products_element">
+		<li data-category='${category}' class="products_element">
 			<img class="products_element__img" src="${image}" alt="net">
 			<div class="products_element__article">${article}</div>
 			<div class="products_element__name"><b>${name}</b></div>
@@ -57,7 +57,6 @@ class Products {
 
 		ROOT_PRODUCTS.innerHTML = html;
 	}
-
 }
 let input = document.querySelector('input').oninput = function(){
 	let element = document.querySelectorAll('.products_element')
@@ -79,6 +78,29 @@ let input = document.querySelector('input').oninput = function(){
  	})
  }
 }
-
+	  	
 const productsPage = new Products();
 productsPage.render();
+
+
+const cards = document.querySelectorAll('[data-category]');
+
+function filter(val, items) {
+ items.forEach((elem) => {
+ 	const isFilter = elem.dataset.category == val;
+ 	const isShowAll = val == "Все";
+ 	console.log(isFilter)
+ 	if (isFilter || isShowAll) {
+ 		elem.style.display = 'block';
+ 	} else {
+ 		elem.style.display = 'none';
+ 	}
+ })
+}
+
+let select = document.querySelector('.cs-select');
+  select.addEventListener("change", function() {
+    let val = this.value;
+    console.log(val)
+    filter(val, cards)
+})

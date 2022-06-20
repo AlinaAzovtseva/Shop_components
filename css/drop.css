@@ -20,6 +20,11 @@ a {
 body {
   font-family: "Manrope", sans-serif;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 15px;
   background-color: #FAFAFA;
+}
+
+.search-block{
+  display: flex;
+  justify-content: space-around;
 }
